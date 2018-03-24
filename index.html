@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title class="house-name">House Stark</title>
+  <link href="css/meyerReset.css" rel="stylesheet" type="text/css" media="screen">
+  <link href="css/GOT_master.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+  <body>
+      <main>
+
+      <section id="imageContainer">
+      	<div id="houseImages"> <!-- add in all of the images to make a scrolling "banner" -->
+      		<img src="images/stark.jpg" alt="House Stark"/>
+      		<img src="images/baratheon.jpg" alt="House Baratheon"/>
+      		<img src="images/lannister.jpg" alt="House Lannister"/>
+      		<img src="images/tully.jpg" alt="House Tully"/>
+      		<img src="images/greyjoy.jpg" alt="House Greyjoy"/>
+      		<img src="images/arryn.jpg" alt="House Arryn"/>
+          </div>
+      </section>
+
+      <nav id="bottomNav">
+      	<ul id="navList">
+          	<!-- custom data attribute, allowing to pass custom data https://developer.mozilla.org/en/docs/Web/API/HTMLElement/dataset -->
+              <li><div class="sigilContainer stark" data-offset="0"></div></li>
+              <li><div class="sigilContainer baratheon" data-offset="1"></div></li>
+              <li><div class="sigilContainer lannister" data-offset="2"></div></li>
+              <li><div class="sigilContainer tully" data-offset="3"></div></li>
+              <li><div class="sigilContainer greyjoy" data-offset="4"></div></li>
+              <li><div class="sigilContainer arryn" data-offset="5"></div></li>
+          </ul>
+      </nav>
+
+      <h1 class="house-name">House Stark</h1>
+
+      <p class="house-info">House Stark Info</p>
+  </main>
+
+  <section class="lightbox">
+      <span class="close-lightbox">x</span>
+      <!-- add video here with sources for fallback / standards -->
+      <div class="videoContainer">
+      <video id="video-player" controls preload="metadata">
+        <source src="video/House-Stark.mp4" type="video/mp4">
+        <p class="unsupported">Your browser doesn't support HTML5 video.<a href="video/House-Stark.mp4">Download</a> the video instead.</p>
+    </video>
+        <!-- Video Controls -->
+        <div id="controls">
+            <div class="playButton"><i class="fas fa-pause"></i></div>            
+    
+            <div class="ProgressContainer">
+                <div class="timer currentTime">
+                    00:00
+                </div>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+                <!-- <div class="time">
+                    00:00
+                </div> -->
+                <div class="timer totalTime">
+                    00:00
+                </div>
+            </div>
+            
+            <div class="volumeContainer">
+                <div class="muteButton"><i class="fas fa-volume-up"></i></div>
+                <input class="volume-bar" type="range" min="0" max="1" step="0.1">
+            </div>
+        
+            <div class="scale">
+                <i class="fas fa-expand"></i>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/video.js"></script>
+</body>
+</html>

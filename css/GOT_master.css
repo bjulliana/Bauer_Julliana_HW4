@@ -1,0 +1,386 @@
+@charset "UTF-8";
+
+/* ----- custom font ----- */
+@font-face {
+    font-family: 'GOT_font';
+    src: url('Game_of_Thrones.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ----- end custom font ----- */
+
+/* ----- default styles ----- */
+body { background-image:url(../images/grungeBG.jpg);
+	background-repeat:no-repeat; background-position:center center;
+	background-color:#000000; font-size:16px; }
+
+h1 {
+	font-family: 'GOT_font';
+	color:white;
+	margin-top:30px;
+	font-size:1.25em;
+}
+
+p {
+	font-family: 'Arial';
+	color:white;
+	font-size:1em;
+	margin-top: 1em;
+}
+
+main {
+	position:relative;
+	width:100%;
+	text-align:center;
+	top:30px;
+}
+
+#imageContainer {
+	width:600px;
+	height:360px;
+	background-color:grey;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+#houseImages { position:relative; width:4000px; transition: all .5s; }
+#houseImages img { float:left; }
+
+#bottomNav { margin-top:30px; }
+
+#navList li {
+	display:inline;
+	list-style-type:none;
+	padding:0px 10px;
+	cursor:pointer;
+}
+
+/* ----- end default styles ----- */
+
+/* ----- image sprite ----- */
+.sigilContainer {
+	width:51px;
+	height:54px;
+	display:inline-block;
+	overflow:hidden;
+	background-image:url(../images/GOT_sprites.png);
+	background-repeat:no-repeat;
+	transition:transform .3s;
+	-webkit-transition:-webkit-transform .3s;
+	-moz-transition:-moz-transform .3s;
+}
+
+.stark { background-position:0px -54px; }
+.stark:hover { background-position:0px 0px; }
+
+.baratheon { background-position:-50.5px -54px; }
+.baratheon:hover { background-position:-51px 0px; }
+
+.lannister { background-position:-101px -54px; }
+.lannister:hover { background-position:-101px 0px; }
+
+.tully { background-position:-152px -54px; }
+.tully:hover { background-position:-152px 0px; }
+
+.greyjoy { background-position:-202px -54px; }
+.greyjoy:hover { background-position:-202px 0px; }
+
+.arryn { background-position:-253px -54px; }
+.arryn:hover { background-position:-253px 0px; }
+/* ----- end image sprite ----- */
+
+/* ----- classes for transitions ----- */
+
+.scaleUp {
+	-moz-transform:scale(1.7, 1.7);
+	-webkit-transform:scale(1.7, 1.7);
+	transform:scale(1.7, 1.7);
+}
+
+.scaleHalfUp {
+	-moz-transform:scale(1.2, 1.2);
+	-webkit-transform:scale(1.2, 1.2);
+	transform:scale(1.2, 1.2);
+}
+
+/* add styles here for lightbox and video */
+
+.lightbox {
+	display: none;
+	position: absolute; 
+	top: 0; 
+	width: 100%; 
+	height: 100%; 
+	text-align: center;
+	background-color: rgba(0,0,0,0.95);
+}
+
+.close-lightbox {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+}
+
+.show-lightbox { display: block; }
+
+video {
+	width: 60%;
+	margin-top: 10%;
+}
+
+.videoContainer {
+	position: relative;
+	box-sizing: content-box;
+	display: inline;
+}
+
+.videoContainer:-webkit-full-screen {
+	width: 100%;
+	height: auto;
+	background-color: #000;
+	display: block;
+}
+
+#controls {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: #000;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 9999;
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+    transform: translate(0, 100%);
+}
+
+.videoContainer:hover #controls {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
+/* Video Controls */
+
+.playPause, .volume .icon,.scale .icon {
+	width: 15px !important;
+	height: 15px !important;
+}
+
+.playButton {
+	display: flex;
+	width: 70px;
+	height: 100%;
+	color: #fff;
+	align-items: center;
+   	justify-content: center;
+	cursor: pointer;
+	transition: all .4s;
+	border-bottom-left-radius: 5px;
+}
+	
+.ProgressContainer {
+	color: #fff;
+	width: calc(100% - 100px);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative
+}
+
+.progressBar {
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 10px;
+	margin: 10px 9px;
+	background: rgba(255,255,255,.5);
+	cursor: pointer;
+	border-radius: 20px;
+	overflow: hidden;
+	/* padding: 3px */
+}
+
+/* .progressBar:hover .time{
+	opacity: 1;
+	transform: translateY(0)
+} */
+
+.progress {
+	background-color: #fff;
+	width: 0%;
+	height: 100%;
+	border-radius: 20px
+}
+.timer {
+	margin: 0 10px;
+	font-family: Arial, sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	font-weight: 300;
+	color: #fff;
+	letter-spacing: 1px;
+}
+/* .time {
+	width: 80px;
+	height: 25px;
+	position: absolute;
+   	top: -20px;
+   	left: 0;
+	border-radius: 5px;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	line-height: 25px;
+	font-size: 12px;
+	letter-spacing: 1px;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: transform .3s, opacity .3s;
+}
+.time::after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 25px;
+	left: 33px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #fff;
+} */
+
+.volumeContainer {
+	width: 150px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: relative;
+	color: #fff;
+	margin: 10px 5px 10px 10px;
+}
+
+.muteButton {
+	cursor: pointer;
+}
+
+.svg-inline--fa {
+	margin-right: 15px;
+}
+
+.scale {
+	width: 70px;
+	height: 100%;
+	color:#fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all .4s;
+}
+.scale:hover {
+	background-color: #000;
+}
+
+
+/* Volume Input Style */
+input[type=range] {
+	-webkit-appearance: none;
+	width: 100%;
+	margin: 0px 0;
+	background: transparent;
+	border-radius: 10px;
+  }
+
+  input[type=range]:focus {
+	outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	border: 0px solid rgba(0, 0, 0, 0);
+  }
+  input[type=range]::-webkit-slider-thumb {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+	border: 0px solid rgba(0, 0, 0, 0);
+	height: 10px;
+	width: 20px;
+	border-radius: 20px;
+	background: #ffffff;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: 0px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+	background: rgba(255, 255, 255, 0.5);
+  }
+  input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	border: 0px solid rgba(0, 0, 0, 0);
+  }
+  input[type=range]::-moz-range-thumb {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+	border: 0px solid rgba(0, 0, 0, 0);
+	height: 10px;
+	width: 20px;
+	border-radius: 20px;
+	background: #ffffff;
+	cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+	background: rgba(219, 219, 219, 0.5);
+	border: 0px solid rgba(0, 0, 0, 0);
+	border-radius: 20px;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  }
+  input[type=range]::-ms-fill-upper {
+	background: rgba(255, 255, 255, 0.5);
+	border: 0px solid rgba(0, 0, 0, 0);
+	border-radius: 20px;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  }
+  input[type=range]::-ms-thumb {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+	border: 0px solid rgba(0, 0, 0, 0);
+	width: 20px;
+	border-radius: 20px;
+	background: #ffffff;
+	cursor: pointer;
+	height: 10px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+	background: rgba(255, 255, 255, 0.5);
+  }
+  input[type=range]:focus::-ms-fill-upper {
+	background: rgba(255, 255, 255, 0.5);
+  }
+  
+
