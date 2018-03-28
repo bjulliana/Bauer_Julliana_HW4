@@ -16,22 +16,22 @@
         details = [
           {
             tagline: 'House Stark',
-            info: 'House Stark Info',
+            info: 'Rulers of the North from the castle of Winterfell. Recently retook their lands from House Bolton, and currently preparing for the war against the Night King. Its current head is Lady Sansa Stark, who jointly rules the North with Warden Jon Snow.',
           },{
             tagline: 'House Baratheon',
-            info: 'House Baratheon Info',
+            info: `Rulers of the Crownlands and Stormlands from the Red Keep and Storm's End, respectively. Extinct in actuality due to all mainline members being deceased but the bloodline is still alive, technically speaking, through Robert the Usurper's many bastard children. The line legally ended with the death of King Tommen I Baratheon, the bastard son of twins Queen Cersei Lannister and Ser Jaime Lannister, who was legally the last remaining Baratheon.`,
           },{
             tagline: 'House Lannister',
-            info: 'House Tully Info',
+            info: `The current royal house of the Seven Kingdoms from the Red Keep of King's Landing in the Crownlands and rulers of the Westerlands from the castle of Casterly Rock. Its leadership is currently disputed by Queen Cersei I Lannister and Lord Tyrion Lannister.`,
           },{
             tagline: 'House Tully',
-            info: 'House Tully Info',
+            info: `The former rulers of the Riverlands, ruling from Riverrun, until the Red Wedding. Riverrun is currently under House Lannister's control. Its current head is Edmure Tully, who remains a captive of House Lannister.`,
           },{
             tagline: 'House Greyjoy',
-            info: 'House Greyjoy Info',
+            info: 'Rulers of the Iron Islands from the castle of Pyke. Divided, with members supporting either the Lannister or Stark/Targaryen cause. Its leadership is currently disputed by King Euron Greyjoy and claimant Lady Yara Greyjoy.',
           },{
             tagline: 'House Arryn',
-            info: 'House Arryn Info',
+            info: 'Rulers of the Vale of Arryn from the castle of the Eyrie. It was integrated with the Kingdom of the North until King Jon Snow abdicated. They currently hold allegiance to House Targaryen. Its current head is Lord Robin Arryn.Info',
           }
         ],
         imageBanner = document.querySelector("#houseImages"),
@@ -66,13 +66,13 @@
     volumeBar.value = 0.5;
     video.load();
     video.play();
-    console.log(video.src)
   };
 
   function closeLBox(){
     lightbox.classList.remove('show-lightbox');
     video.pause();
     video.currentTime = 0;
+    video.load();
   }
 
   sigils.forEach(sigil => sigil.addEventListener('click', moveBanner));

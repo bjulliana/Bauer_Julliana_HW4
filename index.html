@@ -7,6 +7,8 @@
   <title class="house-name">House Stark</title>
   <link href="css/meyerReset.css" rel="stylesheet" type="text/css" media="screen">
   <link href="css/GOT_master.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 </head>
 
   <body>
@@ -37,50 +39,24 @@
 
       <h1 class="house-name">House Stark</h1>
 
-      <p class="house-info">House Stark Info</p>
+      <p class="house-info">Rulers of the North from the castle of Winterfell. Recently retook their lands from House Bolton, and currently preparing for the war against the Night King. Its current head is Lady Sansa Stark, who jointly rules the North with Warden Jon Snow.</p>
   </main>
 
   <section class="lightbox">
-      <span class="close-lightbox">x</span>
+        <span class="close-lightbox">x</span>
+        <h1 class="house-name"></h1>
       <!-- add video here with sources for fallback / standards -->
       <div class="videoContainer">
       <video id="video-player" controls preload="metadata">
         <source src="video/House-Stark.mp4" type="video/mp4">
         <p class="unsupported">Your browser doesn't support HTML5 video.<a href="video/House-Stark.mp4">Download</a> the video instead.</p>
-    </video>
+        </video>
         <!-- Video Controls -->
-        <div id="controls">
-            <div class="playButton"><i class="fas fa-pause"></i></div>            
-    
-            <div class="ProgressContainer">
-                <div class="timer currentTime">
-                    00:00
-                </div>
-                <div class="progressBar">
-                    <div class="progress"></div>
-                </div>
-                <!-- <div class="time">
-                    00:00
-                </div> -->
-                <div class="timer totalTime">
-                    00:00
-                </div>
-            </div>
-            
-            <div class="volumeContainer">
-                <div class="muteButton"><i class="fas fa-volume-up"></i></div>
-                <input class="volume-bar" type="range" min="0" max="1" step="0.1">
-            </div>
-        
-            <div class="scale">
-                <i class="fas fa-expand"></i>
-            </div>
-        </div>
+        <div id="controls"></div>
     </div>
   </section>
 
-<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
 <script src="js/video.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

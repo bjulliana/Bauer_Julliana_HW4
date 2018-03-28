@@ -12,7 +12,9 @@
 /* ----- default styles ----- */
 body { background-image:url(../images/grungeBG.jpg);
 	background-repeat:no-repeat; background-position:center center;
-	background-color:#000000; font-size:16px; }
+	background-color:#000000; font-size:16px; 
+	background-size: cover;
+}
 
 h1 {
 	font-family: 'GOT_font';
@@ -22,10 +24,14 @@ h1 {
 }
 
 p {
-	font-family: 'Arial';
-	color:white;
-	font-size:1em;
+	font-family: 'Lato', sans-serif;
+	color: white;
+	font-size: 1.1rem;
 	margin-top: 1em;
+	line-height: 2rem;
+	padding: 2rem 10rem 0 10rem;
+	max-width: 55rem;
+	margin: 0 auto;
 }
 
 main {
@@ -113,6 +119,12 @@ main {
 	height: 100%; 
 	text-align: center;
 	background-color: rgba(0,0,0,0.95);
+	padding-top: 5rem;
+}
+
+.lightbox.show-lightbox h1.house-name {
+	margin: 4rem 0;
+	font-size: 1.5rem;
 }
 
 .close-lightbox {
@@ -126,11 +138,14 @@ main {
 	cursor: pointer;
 }
 
+.close-lightbox:hover {
+	color: #c78933;
+}
+
 .show-lightbox { display: block; }
 
 video {
 	width: 60%;
-	margin-top: 10%;
 }
 
 .videoContainer {
@@ -154,7 +169,7 @@ video {
 	color: #000;
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: 3px;
 	align-items: center;
 	justify-content: space-between;
 	z-index: 9999;
@@ -184,7 +199,12 @@ video {
    	justify-content: center;
 	cursor: pointer;
 	transition: all .4s;
-	border-bottom-left-radius: 5px;
+	padding: 0;
+	text-align: center;
+}
+
+.playButton:hover {
+	background-color: #ffc78933;
 }
 	
 .ProgressContainer {
@@ -197,6 +217,10 @@ video {
 	position: relative
 }
 
+.ProgressContainer:hover {
+	background-color:#ffc78933;
+}
+
 .progressBar {
 	float: left;
 	position: relative;
@@ -207,13 +231,7 @@ video {
 	cursor: pointer;
 	border-radius: 20px;
 	overflow: hidden;
-	/* padding: 3px */
 }
-
-/* .progressBar:hover .time{
-	opacity: 1;
-	transform: translateY(0)
-} */
 
 .progress {
 	background-color: #fff;
@@ -230,35 +248,6 @@ video {
 	color: #fff;
 	letter-spacing: 1px;
 }
-/* .time {
-	width: 80px;
-	height: 25px;
-	position: absolute;
-   	top: -20px;
-   	left: 0;
-	border-radius: 5px;
-	color: #fff;
-	font-family: Arial, sans-serif;
-	text-align: center;
-	line-height: 25px;
-	font-size: 12px;
-	letter-spacing: 1px;
-	opacity: 0;
-	transform: translateY(10px);
-	transition: transform .3s, opacity .3s;
-}
-.time::after {
-	content: '';
-	display: block;
-	width: 0;
-	height: 0;
-	position: absolute;
-	top: 25px;
-	left: 33px;
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 6px solid #fff;
-} */
 
 .volumeContainer {
 	width: 150px;
@@ -268,15 +257,15 @@ video {
 	justify-content: flex-end;
 	position: relative;
 	color: #fff;
-	margin: 10px 5px 10px 10px;
+	padding: 0 10px;
+}
+
+.volumeContainer:hover {
+	background-color:#ffc78933;
 }
 
 .muteButton {
 	cursor: pointer;
-}
-
-.svg-inline--fa {
-	margin-right: 15px;
 }
 
 .scale {
@@ -290,9 +279,16 @@ video {
 	transition: all .4s;
 }
 .scale:hover {
-	background-color: #000;
+	background-color: #ffc78933;
 }
 
+video::-webkit-media-controls {
+	display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+	display:none !important;
+}
 
 /* Volume Input Style */
 input[type=range] {
@@ -301,6 +297,8 @@ input[type=range] {
 	margin: 0px 0;
 	background: transparent;
 	border-radius: 10px;
+	border: 0;
+	padding: 0 0 0 1rem;
   }
 
   input[type=range]:focus {
