@@ -38,7 +38,6 @@
         ],
         imageBanner = document.querySelector("#houseImages"),
         offSet = 600;
-  const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 
   imageBanner.style.right = "0px";
 
